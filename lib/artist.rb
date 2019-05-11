@@ -21,7 +21,7 @@ class Artist
   
   def self.create(name)
     artist = self.new(name)
-    artist.name = name
+    artist.save
     artist
   end
 
@@ -33,14 +33,7 @@ class Artist
     self.find(name) || self.create(name)
   end
 
-  def self.find_or_create_by_name
-  if self.find(name)
-      self.find(name)
-    else
-      self.create(name)
-    end
-  end
-
+  
   # def self.find(name)     #class method detects instances from @@all class variable
   #   self.all.detect { |artist| artist.name == name }
   # end
