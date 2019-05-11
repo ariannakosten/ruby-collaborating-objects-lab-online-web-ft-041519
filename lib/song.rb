@@ -31,6 +31,3 @@ def artist_name=(name)
     song
   end
 end
-
-  
-end
