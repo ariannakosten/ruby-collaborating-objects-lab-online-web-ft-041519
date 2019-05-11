@@ -1,10 +1,10 @@
 class MP3Importer
   
-  attr_accessor :path 
+  attr_accessor :path, :files
   
   def initialize(path) 
     @path = path
-    @files = 
+    @files = Dir.entries(path).grep(/.*\.mp3/)
   end
   
   def files
