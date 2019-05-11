@@ -19,11 +19,24 @@ class Artist
     @@all << self
   end
   
-  def find_or_create_by_name
-    
+  if self.find(name)
+      self.find(name)
+    else
+      self.create(name)
+    end
   end
-  
-  def print_songs
-    self.songs
+
+  def self.find(name)     #class method detects instances from @@all class variable
+    self.all.detect { |artist| artist.name == name }
+  end
+
+  def self.create(name)   #class method creates & stores instances vs initializing
+    artist = Artist.new(name)
+    artist.save
+    artist
+  end
+
+  def print_songs         #instance method iterates through @songs belonging to Artist
+    self.songs.each {|song| song.name}
   end
 end
